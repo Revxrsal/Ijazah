@@ -7,7 +7,7 @@ import {
 
 export default function Nav() {
   return (
-    <NavigationMenu class="m-4">
+    <NavigationMenu class="p-4">
       <NavigationMenuItem>
         <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
         <NavigationMenuContent>
@@ -15,7 +15,18 @@ export default function Nav() {
         </NavigationMenuContent>
       </NavigationMenuItem>
       <NavigationMenuItem>
-        <NavigationMenuTrigger>Item One</NavigationMenuTrigger>
+        <NavigationMenuTrigger>Item Two</NavigationMenuTrigger>
+        <NavigationMenuContent>
+          <NavigationMenuLink>Link</NavigationMenuLink>
+          <NavigationMenuLink>Link</NavigationMenuLink>
+          <NavigationMenuLink>Link</NavigationMenuLink>
+          <NavigationMenuLink>Link</NavigationMenuLink>
+          <NavigationMenuLink>Link</NavigationMenuLink>
+          <NavigationMenuLink>Link</NavigationMenuLink>
+        </NavigationMenuContent>
+      </NavigationMenuItem>
+      <NavigationMenuItem>
+        <NavigationMenuTrigger>Item TwThro</NavigationMenuTrigger>
         <NavigationMenuContent>
           <NavigationMenuLink>Link</NavigationMenuLink>
           <NavigationMenuLink>Link</NavigationMenuLink>

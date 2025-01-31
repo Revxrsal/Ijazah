@@ -1,16 +1,15 @@
-import {TextField, TextFieldErrorMessage, TextFieldRoot} from "~/components/ui/textfield";
-import {Button} from "~/components/ui/button";
+import {createSignal} from "solid-js";
+import {Sample} from "~/metadata/Sample";
+import {DynamicField} from "~/metadata/DynamicField";
 
 export default function Home() {
+  const [v, setV] = createSignal(Sample.value)
   return (
-    <main class="mx-auto p-4">
+    <main class="flex flex-col mx-auto p-4 w-full min-h-screen">
+      <p>{JSON.stringify(v(), null, 4)}</p>
       <h1>Discord Bot Builder - Web</h1>
       <h2 class={"my-8"}>Web Editor</h2>
-      <TextFieldRoot  validationState="invalid">
-        <TextField type="email" placeholder="Email" />
-        <TextFieldErrorMessage>Email is required.</TextFieldErrorMessage>
-        <Button type="button">Subscribe</Button>
-      </TextFieldRoot>
+      <DynamicField metadata={Sample.metadata} nesting={0} key={"hi"} value={v()} onUpdate={setV}/>
     </main>
   );
 }
