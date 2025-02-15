@@ -29,9 +29,13 @@ export default function ListField(props: {
           }}/>
       )}</For>
       <div class={"my-4"}/>
-      <Button style={{"margin-inline-start": `${(props.nesting + 1) * 4}px`}} onClick={() => {
-        setValue(value.length, createEmptyValue(props.metadata.entryType));
-      }}>
+      <Button
+        style={{"margin-inline-start": `${(props.nesting + 1) * 4}px`}}
+        onClick={() => {
+          setValue(value.length, createEmptyValue(props.metadata.entryType));
+        }}
+        disabled={value.length >= props.metadata.maxSize}
+      >
         Add new value
       </Button>
       <div class={"my-4"}/>
