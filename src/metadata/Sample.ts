@@ -10,9 +10,10 @@ export const Sample: EditResponse = {
     ],
     "map": {
       "v": {
-        "x": "nooo"
+        "x": "nooo",
+        "b": true
       }
-    }
+    },
   },
   "metadata": {
     "type": "object",
@@ -29,21 +30,14 @@ export const Sample: EditResponse = {
         "valueType": {
           "type": "object",
           "fields": {
-            "x": {
-              "type": "string",
-              "minLength": 0,
-              "maxLength": 2147483647
-            }
-          }
-        }
-      },
-      "list": {
-        "type": "list",
-        "minSize": 0,
-        "maxSize": 2147483647,
-        "entryType": {
-          "type": "object",
-          "fields": {
+            "y": {
+              "type": "integer",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "b": {
+              "type": "boolean"
+            },
             "x": {
               "type": "string",
               "minLength": 0,
@@ -56,6 +50,29 @@ export const Sample: EditResponse = {
         "type": "integer",
         "min": -2147483648,
         "max": 2147483647
+      },
+      "list": {
+        "type": "list",
+        "minSize": 0,
+        "maxSize": 2147483647,
+        "entryType": {
+          "type": "object",
+          "fields": {
+            "y": {
+              "type": "integer",
+              "min": -2147483648,
+              "max": 2147483647
+            },
+            "b": {
+              "type": "boolean"
+            },
+            "x": {
+              "type": "string",
+              "minLength": 0,
+              "maxLength": 2147483647
+            }
+          }
+        }
       }
     }
   }

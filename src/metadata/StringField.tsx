@@ -16,12 +16,13 @@ export default function StringField(props: {
   }
   return (
     <TextFieldRoot validationState={invalid() ? "invalid" : "valid"}>
-      <TextFieldLabel>
+      <TextFieldLabel class={"font-semibold p-2 m-2"}>
         {props.key}
       </TextFieldLabel>
       <TextField
         value={props.value}
         onChange={(e: { currentTarget: { value: string; }; }) => props.onUpdate(e.currentTarget.value)}
+        class={"m-2"}
       />
       <Show when={invalid()}>
         <Show when={length < min}>

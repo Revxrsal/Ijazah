@@ -9,7 +9,7 @@ export default function EnumField(props: {
 }) {
   return (
     <>
-      <label class="font-semibold">
+      <label class="font-semibold p-2 m-2">
         {props.key}
       </label>
       <Select

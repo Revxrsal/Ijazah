@@ -77,7 +77,7 @@ export function createEmptyValue(metadata: Metadata): any {
     case "list":
       return [];
     case "enum":
-      return "";
+      return metadata.options[0];
     case "map":
       return {};
     case "object":

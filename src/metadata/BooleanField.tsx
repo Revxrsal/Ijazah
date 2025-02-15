@@ -1,5 +1,5 @@
 import {BooleanPropertyMetadata} from "~/metadata/Metadata";
-import {SwitchControl, SwitchLabel, SwitchThumb} from "~/components/ui/switch";
+import {Switch, SwitchControl, SwitchLabel, SwitchThumb} from "~/components/ui/switch";
 
 export default function BooleanField(props: {
   key: string;
@@ -8,17 +8,16 @@ export default function BooleanField(props: {
   metadata: BooleanPropertyMetadata
 }) {
   return (
-    <SwitchControl
-      class="flex items-center space-x-2"
-      checked={props.value}
-      onChange={(e: { currentTarget: { checked: boolean; }; }) => props.onUpdate(e.currentTarget.checked)}
+    <Switch class={"my-2 mx-2"}
+            onChange={e => props.onUpdate(e)}
+            checked={props.value}
     >
-      <SwitchControl>
-        <SwitchThumb/>
-      </SwitchControl>
-      <SwitchLabel class="text-sm leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70">
+      <SwitchLabel class="text-sm leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70 p-2">
         {props.key}
       </SwitchLabel>
-    </SwitchControl>
+      <SwitchControl class="flex items-center space-x-2">
+        <SwitchThumb/>
+      </SwitchControl>
+    </Switch>
   )
 }

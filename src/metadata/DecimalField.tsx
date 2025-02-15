@@ -24,6 +24,7 @@ export default function DecimalField(props: {
   }
   return (
     <NumberField
+      class={"p-2"}
       defaultValue={props.value || 0}
       minValue={min}
       maxValue={max}
