@@ -16,18 +16,12 @@ export default function ForgotSerial() {
       </h1>
       <form>
         <div class={"flex flex-col"}>
-          <h3 class={"text-center my-4"}>
-            قوائم الذكور
-          </h3>
           <Button class={"my-3"} onClick={() => downloadExcel("ذكر")}>
             تحميل قوائم الذكور
           </Button>
         </div>
         <Separator/>
         <div class={"flex flex-col"}>
-          <h3 class={"text-center my-4"}>
-            قوائم الإناث
-          </h3>
           <Button class={"my-3"} onClick={() => downloadExcel("أنثى")}>
             تحميل قوائم الإناث
           </Button>
