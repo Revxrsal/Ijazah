@@ -83,15 +83,15 @@ export default function Fill() {
   const {gender, GenderPicker} = createGenderPicker()
 
   const [willAttendTomorrow, WillAttendTomorrow] = createConfirmationBox(
-    () => watchedAll() ? "سأستلم الشهادة والإجازة غدًا في مجمع مكين - يدويًا" : "سأستلم الشهادة غدًا في مجمع مكين - يدويًا"
+ "سأستلم الإجازة غدًا في مجمع مكين - يدويًا"    
   )
   return (
     <main class="flex flex-col items-center mx-auto p-4 w-full direction-rtl">
       <Title>
-        تعبئة نموذج الإجازة والشهادة - همم 3
+        تعبئة نموذج الإجازة - همم 3
       </Title>
       <h1 class={"my-8"}>
-        نموذج الإجازة والشهادة
+        نموذج الإجازة
       </h1>
       <h3 class={"my-4"}>
         التّعليق على سنن النّسائيّ
