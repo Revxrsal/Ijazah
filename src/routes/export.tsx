@@ -22,12 +22,6 @@ export default function ForgotSerial() {
           <Button class={"my-3"} onClick={() => downloadExcel("ذكر")}>
             تحميل قوائم الذكور
           </Button>
-          <Button class={"my-3"} onClick={() => downloadExcel("ذكر", "Ijazat only")}>
-            تحميل قوائم الذكور - إجازات فقط
-          </Button>
-          <Button class={"my-3"} onClick={() => downloadExcel("ذكر", "Certs only")}>
-            تحميل قوائم الذكور - الشهادات بلا إجازات
-          </Button>
         </div>
         <Separator/>
         <div class={"flex flex-col"}>
@@ -36,12 +30,6 @@ export default function ForgotSerial() {
           </h3>
           <Button class={"my-3"} onClick={() => downloadExcel("أنثى")}>
             تحميل قوائم الإناث
-          </Button>
-          <Button class={"my-3"} onClick={() => downloadExcel("أنثى", "Ijazat only")}>
-            تحميل قوائم الإناث - إجازات فقط
-          </Button>
-          <Button class={"my-3"} onClick={() => downloadExcel("أنثى", "Certs only")}>
-            تحميل قوائم الإناث - الشهادات بلا إجازات
           </Button>
         </div>
       </form>
