@@ -9,10 +9,10 @@ export default function ForgotSerial() {
   return (
     <main class="flex flex-col items-center mx-auto p-4 w-full">
       <Title>
-        تحميل قوائم الشهادات والإجازات - همم 3
+        تحميل قوائم الإجازات - همم 3
       </Title>
       <h1 class={"my-8 leading-relaxed direction-rtl text-center"}>
-        تحميل قوائم الشهادات والإجازات
+        تحميل قوائم الإجازات
       </h1>
       <form>
         <div class={"flex flex-col"}>
