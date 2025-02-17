@@ -103,7 +103,7 @@ export default function Fill() {
         <NameField/>
         <GenderPicker/>
         <Warning/>
-<p><strong>شرط الإجازة: </strong>حضور جميع المجالس بشكل حي</p>
+<p><strong>شرط الإجازة: </strong> حضور جميع المجالس بشكل حي (سواءٌ وجاهيًّا أم عن بعد)</p>
         <WatchedAllLive/>
         <AgreeBox/>
         <WillAttendTomorrow/>
@@ -144,7 +144,7 @@ function createNameField(watchedAll: () => boolean) {
       onChange={setName}
     >
       <TextFieldLabel class={"text-xl"}>
-        {watchedAll() ? "الاسم كما تود أن يظهر في الشهادة والإجازة" : "الاسم كما تود أن يظهر في الشهادة"}
+        {watchedAll() ? "الاسم كما تود أن يظهر في الإجازة" : "الاسم كما تود أن يظهر في الإجازة"}
       </TextFieldLabel>
       <TextField type="name" placeholder="الاسم" class={"min-h-12 leading-10"}/>
     </TextFieldRoot>,
@@ -213,12 +213,12 @@ function InstructionsAlert(props: { onClick: () => void, onDismissRequest: () =>
     <>
       <AlertDialogHeader>
         <AlertDialogTitle as={"h3"} class={"direction-rtl text-center text-2xl my-4"}>
-          تعليمات استلام الإجازات والشهادات
+          تعليمات استلام الإجازات
         </AlertDialogTitle>
         <AlertDialogDescription class={"text-right"}>
           <ol dir="rtl" class={"text-right list-decimal pr-4 pt-2"}>
             <li>سيظهر أمامك رقمٌ تسلسلي خاصٌّ بك</li>
-            <li>في آخر المجلس، سينادي المشرفون على الأرقام التسلسلية لتسليم الشهادات والإجازات</li>
+            <li>في آخر المجلس، سينادي المشرفون على الأرقام التسلسلية لتسليم الإجازات</li>
             <li class={"text-red-200"}>تذكر رقمك التسلسلي جيّدًا، والتقط له صورةً حتى لا تنساه!</li>
           </ol>
           <Understood/>
