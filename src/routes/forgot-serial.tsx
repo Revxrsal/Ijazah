@@ -29,7 +29,6 @@ export default function ForgotSerial() {
     });
 
     const data: Entry[] = (await response.json()).data;
-    console.log(data)
     setResults(data)
   }
 
@@ -41,7 +40,7 @@ export default function ForgotSerial() {
       <Button variant={"ghost"} onClick={() => navigate("/")}>
         العودة
       </Button>
-      <form class={"flex flex-col my-4 border rounded-xl p-8 direction-rtl"}>
+      <div class={"flex flex-col my-4 border rounded-xl p-8 direction-rtl"}>
         <TextFieldRoot
           class="w-full max-w-md direction-rtl my-4 min-h-12 leading-10"
           value={name()}
@@ -54,7 +53,7 @@ export default function ForgotSerial() {
         </TextFieldRoot>
         <GenderPicker/>
         <Button onClick={search} disabled={gender() == null || name().length == 0}>البحث</Button>
-      </form>
+      </div>
       <div class="my-4">
         <Table class={'w-full justify-center'}>
           <TableHeader>

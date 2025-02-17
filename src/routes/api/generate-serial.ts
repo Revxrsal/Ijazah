@@ -1,14 +1,6 @@
 import type {APIEvent} from "@solidjs/start/server";
 import {Submission} from "~/types";
-
-import {createClient} from "@supabase/supabase-js"
-import {Database} from "~/database.types";
-
-// Create a single supabase client for interacting with your database
-const supabase = createClient<Database>(
-  import.meta.env.VITE_SUPABASE_PROJECT_URL,
-  import.meta.env.VITE_SUPABASE_SERVICE_ROLE
-)
+import {supabase} from "~/routes/api/database";
 
 export async function POST(event: APIEvent) {
   const json: Submission = await event.request.json()

@@ -12,7 +12,16 @@ import {
 import {useNavigate} from "@solidjs/router";
 import {TextField, TextFieldLabel, TextFieldRoot} from "~/components/ui/textfield";
 import {Switch, SwitchControl, SwitchLabel, SwitchThumb} from "~/components/ui/switch";
-import {Accessor, createEffect, createResource, createSignal, JSXElement, Match, Switch as MSwitch} from "solid-js";
+import {
+  Accessor,
+  createEffect,
+  createResource,
+  createSignal,
+  JSXElement,
+  Match,
+  Show,
+  Switch as MSwitch
+} from "solid-js";
 import {Submission} from "~/types";
 import {createGenderPicker} from "~/components/GenderPicker";
 
@@ -43,7 +52,7 @@ function Warning() {
   )
 }
 
-async function generateSerial(data: any): Promise<number> {
+async function generateSerial(data: Submission): Promise<number> {
   const response = await fetch('/api/generate-serial', {
     method: 'POST',
     headers: {
@@ -55,8 +64,9 @@ async function generateSerial(data: any): Promise<number> {
   if (!response.ok) {
     throw new Error(`HTTP error await fetch("/api/generate-serial"`)
   }
-  const r: { success: string; serial: number } = await response.json();
-  return r.serial
+  const r: { success: string; id: number } = await response.json();
+  console.log("Resp", r)
+  return r.id
 }
 
 export default function Fill() {
@@ -74,7 +84,6 @@ export default function Fill() {
   const [willAttendTomorrow, WillAttendTomorrow] = createConfirmationBox(
     () => watchedAll() ? "سأستلم الشهادة والإجازة غدًا في مجمع مكين - يدويًا" : "سأستلم الشهادة غدًا في مجمع مكين - يدويًا"
   )
-  createEffect(() => console.log(gender()))
   return (
     <main class="flex flex-col items-center mx-auto p-4 w-full direction-rtl">
       <h1 class={"my-8"}>
@@ -156,8 +165,10 @@ function Alert(props: { onDismissRequest: () => void, data: Submission }) {
 
 function ShowingSerialAlert(props: { onDismissRequest: () => void, data: Submission }) {
   const navigate = useNavigate()
+  console.log(props.data)
   const [serial] = createResource(async () => generateSerial(props.data))
   createEffect(() => {
+    console.log(serial.state)
     if (serial.state == "ready" && serial() != undefined) {
       localStorage.setItem("serial", JSON.stringify(serial()));
     }
@@ -169,9 +180,11 @@ function ShowingSerialAlert(props: { onDismissRequest: () => void, data: Submiss
           رقمك التسلسلي هو
         </AlertDialogTitle>
         <AlertDialogDescription>
-          <p class={"text-7xl font-bold text-center my-8"}>
-            {serial()}
-          </p>
+          <Show when={serial.state == "ready"}>
+            <p class={"text-7xl font-bold text-center my-8"}>
+              {serial()}
+            </p>
+          </Show>
           <p class={"text-center my-8"}>
             الاسم: {props.data.name}
           </p>
@@ -182,7 +195,7 @@ function ShowingSerialAlert(props: { onDismissRequest: () => void, data: Submiss
           حسنًا
         </AlertDialogAction>
         <div class={"mx-3"}/>
-        <AlertDialogClose>الرجوع</AlertDialogClose>
+        <AlertDialogClose onClick={props.onDismissRequest}>الرجوع</AlertDialogClose>
       </AlertDialogFooter>
     </>
   )

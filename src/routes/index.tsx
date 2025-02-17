@@ -1,5 +1,6 @@
 import {Button} from "~/components/ui/button";
 import {useNavigate} from "@solidjs/router";
+import {Gender} from "~/types";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -23,3 +24,4 @@ export default function Home() {
     </main>
   );
 }
+
