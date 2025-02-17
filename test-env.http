@@ -1,9 +1,0 @@
-POST http://localhost:3000/api/search-name
-Content-Type: application/json
-
-{
-  "query": "علي",
-  "gender": "ذكر"
-}
-
-###

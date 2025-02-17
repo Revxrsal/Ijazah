@@ -1,14 +1,6 @@
-import {TextField, TextFieldLabel, TextFieldRoot} from "~/components/ui/textfield";
-import {createSignal, For} from "solid-js";
-import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "~/components/ui/table";
 import {Button} from "~/components/ui/button";
 import {useNavigate} from "@solidjs/router";
 import {Gender} from "~/types";
-
-type Entry = {
-  id: number,
-  name: string,
-}
 
 export default function ForgotSerial() {
   const navigate = useNavigate();
