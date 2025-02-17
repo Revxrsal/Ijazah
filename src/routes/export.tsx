@@ -1,6 +1,6 @@
 import {Button} from "~/components/ui/button";
 import {useNavigate} from "@solidjs/router";
-import {Gender} from "~/types";
+import {Filter, Gender} from "~/types";
 import {Title} from "@solidjs/meta";
 import {Separator} from "~/components/ui/separator";
 
@@ -16,20 +16,32 @@ export default function ForgotSerial() {
       </h1>
       <form>
         <div class={"flex flex-col"}>
+          <h3 class={"text-center my-4"}>
+            قوائم الذكور
+          </h3>
           <Button class={"my-3"} onClick={() => downloadExcel("ذكر")}>
             تحميل قوائم الذكور
           </Button>
-          <Button class={"my-3"} onClick={() => downloadExcel("ذكر", true)}>
+          <Button class={"my-3"} onClick={() => downloadExcel("ذكر", "Ijazat only")}>
             تحميل قوائم الذكور - إجازات فقط
+          </Button>
+          <Button class={"my-3"} onClick={() => downloadExcel("ذكر", "Certs only")}>
+            تحميل قوائم الذكور - الشهادات بلا إجازات
           </Button>
         </div>
         <Separator/>
         <div class={"flex flex-col"}>
-          <Button class={"my-3"} onClick={() => downloadExcel("ذكر")}>
+          <h3 class={"text-center my-4"}>
+            قوائم الإناث
+          </h3>
+          <Button class={"my-3"} onClick={() => downloadExcel("أنثى")}>
             تحميل قوائم الإناث
           </Button>
-          <Button class={"my-3"} onClick={() => downloadExcel("أنثى", true)}>
+          <Button class={"my-3"} onClick={() => downloadExcel("أنثى", "Ijazat only")}>
             تحميل قوائم الإناث - إجازات فقط
+          </Button>
+          <Button class={"my-3"} onClick={() => downloadExcel("أنثى", "Certs only")}>
+            تحميل قوائم الإناث - الشهادات بلا إجازات
           </Button>
         </div>
       </form>
@@ -40,10 +52,10 @@ export default function ForgotSerial() {
   )
 }
 
-async function downloadExcel(gender: Gender, watchedAllOnly: boolean = false) {
+async function downloadExcel(gender: Gender, filter: Filter | null = null) {
   const response = await fetch("/api/export-to-excel", {
     method: "POST",
-    body: JSON.stringify({gender, watchedAllOnly}),
+    body: JSON.stringify({gender, filter}),
   });
 
   if (!response.ok) {
@@ -56,17 +68,15 @@ async function downloadExcel(gender: Gender, watchedAllOnly: boolean = false) {
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
-  if (gender === "ذكر") {
-    if (watchedAllOnly)
-      a.download = "قوائم الذكور - الإجازات فقط.xlsx";
-    else
-      a.download = "قوائم الذكور.xlsx";
-  } else {
-    if (watchedAllOnly)
-      a.download = "قوائم الإناث - الإجازات فقط.xlsx";
-    else
-      a.download = "قوائم الإناث.xlsx";
-  }
+
+  let name = gender == "ذكر" ? "قوائم الذكور" : "قوائم الإناث"
+  if (filter == "Certs only")
+    name += "- الشهادات فقط"
+  else if (filter == "Ijazat only")
+    name += "- الإجازات فقط"
+  name += ".xlsx"
+
+  a.download = name
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);

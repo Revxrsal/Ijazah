@@ -1,20 +1,21 @@
 import * as XLSX from "xlsx";
 import type {APIEvent} from "@solidjs/start/server";
 import {supabase} from "~/routes/api/database";
-import {Gender} from "~/types";
+import {Filter, Gender} from "~/types";
 
 export async function POST({request}: APIEvent) {
   // Fetch table data from Supabase
-  const {gender, watchedAllOnly}: { gender: Gender, watchedAllOnly: boolean } = await request.json()
-  let r
-  if (watchedAllOnly)
-    r = await supabase.from(gender == "ذكر" ? "males" : "females")
-      .select("*")
-      .eq("watched_all", true);
-  else
-    r = await supabase.from(gender == "ذكر" ? "males" : "females")
-      .select("*")
-  const {data, error} = r
+  const {gender, filter}: { gender: Gender, filter: Filter | null } = await request.json()
+  let query = supabase.from(gender == "ذكر" ? "males" : "females")
+    .select("*")
+
+  if (filter == "Certs only") {
+    query = query.eq("watched_all", false)
+  } else if (filter == "Ijazat only") {
+    query = query.eq("watched_all", true)
+  }
+
+  let {data, error} = await query
   if (error) {
     return new Response(JSON.stringify({error: error.message}), {
       status: 500,
@@ -22,7 +23,7 @@ export async function POST({request}: APIEvent) {
     });
   }
 
-  const renamedData = data.map(entry => ({
+  const renamedData = data!.map(entry => ({
     "الرقم التسلسلي": entry.id,
     "الاسم": entry.name,
     "شاهد جميع المحاضرات": entry.watched_all ? "نعم" : "لا",

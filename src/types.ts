@@ -1,9 +1,10 @@
 export type Gender = "ذكر" | "أنثى"
 export const BOT_URL = "https://t.me/gherasal3elm_bot"
+export type Filter = "Certs only" | "Ijazat only";
 
 export type SerialResponse = {
   success: boolean,
-  serial: number
+  id: number
 }
 
 export type Submission = {
