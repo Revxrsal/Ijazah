@@ -103,9 +103,10 @@ export default function Fill() {
         <NameField/>
         <GenderPicker/>
         <Warning/>
+        <AgreeBox/>
 <p><strong>شرط الإجازة: </strong> حضور جميع المجالس بشكل حي (سواءٌ وجاهيًّا أم عن بعد)</p>
         <WatchedAllLive/>
-        <AgreeBox/>
+
         <WillAttendTomorrow/>
 
         {/*<p class={"my-4 text-green-200"}>*/}
