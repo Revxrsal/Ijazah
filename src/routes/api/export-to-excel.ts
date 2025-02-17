@@ -6,7 +6,7 @@ import {Gender} from "~/types";
 export async function POST({request}: APIEvent) {
   // Fetch table data from Supabase
   const {gender}: { gender: Gender } = await request.json()
-  const {data, error} = await supabase.from(gender == "ذكر" ? "males" : "females").select("*");
+  const {data, error} = await supabase.from(gender == "ذكر" ? "testing" : "females").select("*");
 
   if (error) {
     return new Response(JSON.stringify({error: error.message}), {
