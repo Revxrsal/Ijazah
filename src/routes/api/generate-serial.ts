@@ -5,7 +5,7 @@ import {supabase} from "~/routes/api/database";
 export async function POST(event: APIEvent) {
   const json: Submission = await event.request.json()
   if (json.gender == "ذكر") {
-    const {data, error} = await supabase.from("males")
+    const {data, error} = await supabase.from("testing")
       .insert({name: json.name, watched_all: json.watchedAll})
       .select("id")
     if (data)
