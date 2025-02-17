@@ -20,13 +20,6 @@ export default createHandler(() => (
         <meta property="og:image" content="https://ijazah.vercel.app/android-chrome-192x192.png"/>
         <meta property="og:url" content="https://ijazah.vercel.app/"/>
 
-        {/*<meta property="og:title" content="نموذج تسجيل الإجازات والشهادات"/>*/}
-        {/*<meta property="og:site_name" content="همم 3"/>*/}
-        {/*<meta property="og:url" content="https://ijazah.vercel.app/"/>*/}
-        {/*<meta property="og:description"*/}
-        {/*      content="نموذج تسجيل الإجازات والشهادات لسنن النسائي - الدورة العلمية المكثّفة - همم 3"/>*/}
-        {/*<meta property="og:type" content=""/>*/}
-        {/*<meta property="og:image" content=""/>*/}
         {assets}
       </head>
       <body>
