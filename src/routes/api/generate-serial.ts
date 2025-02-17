@@ -11,7 +11,7 @@ export async function POST(event: APIEvent) {
     if (data)
       return Response.json({success: true, id: data[0].id})
     else
-      return Response.json({"success": false, "error": error})
+      return Response.json({success: false, error})
   } else {
     const {data, error} = await supabase.from("females")
       .insert({name: json.name, watched_all: json.watchedAll})
@@ -19,6 +19,6 @@ export async function POST(event: APIEvent) {
     if (data)
       return Response.json({success: true, id: data[0].id})
     else
-      return Response.json({"success": false, "error": error})
+      return Response.json({success: false, error})
   }
 }

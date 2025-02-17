@@ -5,9 +5,16 @@ import {Gender} from "~/types";
 
 export async function POST({request}: APIEvent) {
   // Fetch table data from Supabase
-  const {gender}: { gender: Gender } = await request.json()
-  const {data, error} = await supabase.from(gender == "ذكر" ? "males" : "females").select("*");
-
+  const {gender, watchedAllOnly}: { gender: Gender, watchedAllOnly: boolean } = await request.json()
+  let r
+  if (watchedAllOnly)
+    r = await supabase.from(gender == "ذكر" ? "males" : "females")
+      .select("*")
+      .eq("watched_all", true);
+  else
+    r = await supabase.from(gender == "ذكر" ? "males" : "females")
+      .select("*")
+  const {data, error} = r
   if (error) {
     return new Response(JSON.stringify({error: error.message}), {
       status: 500,
