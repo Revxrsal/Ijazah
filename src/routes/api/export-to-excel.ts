@@ -15,8 +15,14 @@ export async function POST({request}: APIEvent) {
     });
   }
 
+  const renamedData = data.map(entry => ({
+    "الرقم التسلسلي": entry.id,
+    "الاسم": entry.name,
+    "شاهد جميع المحاضرات": entry.watched_all ? "نعم" : "لا",
+  }));
+
   // Convert data to worksheet
-  const worksheet = XLSX.utils.json_to_sheet(data);
+  const worksheet = XLSX.utils.json_to_sheet(renamedData);
   const workbook = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(workbook, worksheet, "Sheet1");
 

@@ -4,6 +4,7 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "~/c
 import {Button} from "~/components/ui/button";
 import {createGenderPicker} from "~/components/GenderPicker";
 import {useNavigate} from "@solidjs/router";
+import {Title} from "@solidjs/meta";
 
 type Entry = {
   id: number,
@@ -34,6 +35,9 @@ export default function ForgotSerial() {
 
   return (
     <main class="flex flex-col items-center mx-auto p-4 w-full ">
+      <Title>
+        استرجاع الرقم التسلسلي - همم 3
+      </Title>
       <h1 class={"my-8 leading-relaxed text-center"}>
         استرجاع الرقم التسلسلي
       </h1>

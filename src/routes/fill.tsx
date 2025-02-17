@@ -24,6 +24,7 @@ import {
 } from "solid-js";
 import {Submission} from "~/types";
 import {createGenderPicker} from "~/components/GenderPicker";
+import {Title} from "@solidjs/meta";
 
 function createConfirmationBox(label: string | Accessor<string>): [Accessor<boolean>, () => JSXElement] {
   const [confirmed, setConfirmed] = createSignal(false)
@@ -86,6 +87,9 @@ export default function Fill() {
   )
   return (
     <main class="flex flex-col items-center mx-auto p-4 w-full direction-rtl">
+      <Title>
+        تعبئة نموذج الإجازة والشهادة - همم 3
+      </Title>
       <h1 class={"my-8"}>
         نموذج الإجازة والشهادة
       </h1>

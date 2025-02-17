@@ -1,11 +1,16 @@
 import {Button} from "~/components/ui/button";
 import {useNavigate} from "@solidjs/router";
-import {Gender} from "~/types";
+import {Title} from "@solidjs/meta";
+import BotButton from "~/components/BotButton";
 
 export default function Home() {
   const navigate = useNavigate();
   return (
-    <main class="flex flex-col justify-center items-center mx-auto p-4 w-full ">
+    <main
+      class="flex flex-col h-screen content-center text-center min-h-screen justify-center items-center mx-auto p-4 w-full select-none">
+      <Title>
+        نموذج الإجازة والشهادة - همم 3
+      </Title>
       <h1 class={"my-8 leading-relaxed text-center"}>
         نموذج الإجازة والشهادة
       </h1>
@@ -18,9 +23,10 @@ export default function Home() {
       <Button class={"mt-8 mb-2 text-xl p-7"} onClick={() => navigate("/fill")}>
         تعبئة نموذج الإجازة
       </Button>
-      <Button variant={"ghost"} class={"mt-2 mb-8 p-6"} onClick={() => navigate("/forgot-serial")}>
-        نسيت الرقم التسلسلي
+      <Button variant={"ghost"} class={"mt-2 mb-2 p-6"} onClick={() => navigate("/forgot-serial")}>
+        نسيت الرقم التسلسلي؟
       </Button>
+      <BotButton/>
     </main>
   );
 }

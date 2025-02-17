@@ -1,11 +1,15 @@
 import {Button} from "~/components/ui/button";
 import {useNavigate} from "@solidjs/router";
 import {Gender} from "~/types";
+import {Title} from "@solidjs/meta";
 
 export default function ForgotSerial() {
   const navigate = useNavigate();
   return (
     <main class="flex flex-col items-center mx-auto p-4 w-full">
+      <Title>
+        تحميل قوائم الشهادات والإجازات - همم 3
+      </Title>
       <h1 class={"my-8"}>
         تحميل قوائم الشهادات والإجازات
       </h1>
