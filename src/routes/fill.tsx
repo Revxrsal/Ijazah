@@ -125,7 +125,7 @@ export default function Fill() {
             name() == "" ||
             !agree() ||
             !willAttendTomorrow() ||
-            !watchedAllLive() ||
+            !watchedAll() ||
             gender() == null
           }
         >
