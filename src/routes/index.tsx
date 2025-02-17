@@ -6,7 +6,7 @@ export default function Home() {
   const navigate = useNavigate();
   return (
     <main class="flex flex-col justify-center items-center mx-auto p-4 w-full ">
-      <h1 class={"my-8"}>
+      <h1 class={"my-8 leading-relaxed text-center"}>
         نموذج الإجازة والشهادة
       </h1>
       <h2 class={"my-4"}>

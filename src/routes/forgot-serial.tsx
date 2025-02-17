@@ -33,14 +33,14 @@ export default function ForgotSerial() {
   }
 
   return (
-    <main class="flex flex-col items-center mx-auto p-4 w-full text-center">
-      <h1 class={"my-8"}>
+    <main class="flex flex-col items-center mx-auto p-4 w-full ">
+      <h1 class={"my-8 leading-relaxed text-center"}>
         استرجاع الرقم التسلسلي
       </h1>
       <Button variant={"ghost"} onClick={() => navigate("/")}>
         العودة
       </Button>
-      <div class={"flex flex-col my-4 border rounded-xl p-8 direction-rtl"}>
+      <div class={"flex flex-col my-4 border rounded-xl p-8 direction-rtl w-full max-w-md"}>
         <TextFieldRoot
           class="w-full max-w-md direction-rtl my-4 min-h-12 leading-10"
           value={name()}
