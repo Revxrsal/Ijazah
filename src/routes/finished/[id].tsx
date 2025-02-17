@@ -19,6 +19,9 @@ export default function Finished() {
         </Button>
         <BotButton/>
       </form>
+      <p>
+        بوركت خطواتكم، وأتمّ الله لكم العلم بالنفع والفائدة وجعلكم من أهل الحديث 🌱🤍 ...
+      </p>
     </main>
   )
 }
