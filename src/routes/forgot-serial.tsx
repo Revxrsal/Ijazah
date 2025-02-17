@@ -33,7 +33,7 @@ export default function ForgotSerial() {
   }
 
   return (
-    <main class="flex flex-col items-center mx-auto p-4 w-full">
+    <main class="flex flex-col items-center mx-auto p-4 w-full text-center">
       <h1 class={"my-8"}>
         استرجاع الرقم التسلسلي
       </h1>

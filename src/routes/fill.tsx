@@ -71,7 +71,7 @@ async function generateSerial(data: Submission): Promise<number> {
 
 export default function Fill() {
   const navigate = useNavigate();
-  const [openDialog, setOpenDialog] = createSignal(false)
+  const [openDialog, setOpenDialog] = createSignal(true)
   const [watchedAll, WatchedAllLive] = createConfirmationBox(
     "قد تابعت كافة مجالس الدورة بشكلٍ حيّ [وجاهيًا - عبر البثّ المُباشر]"
   )
@@ -150,7 +150,7 @@ type Phase = "Instructions" | "ShowingSerial"
 function Alert(props: { onDismissRequest: () => void, data: Submission }) {
   const [phase, setPhase] = createSignal<Phase>("Instructions");
   return (
-    <AlertDialogContent class={"direction-rtl"}>
+    <AlertDialogContent class={"direction-rtl w-11/12"}>
       <MSwitch>
         <Match when={phase() == "Instructions"}>
           <InstructionsAlert onClick={() => setPhase("ShowingSerial")} onDismissRequest={props.onDismissRequest}/>
@@ -190,12 +190,12 @@ function ShowingSerialAlert(props: { onDismissRequest: () => void, data: Submiss
           </p>
         </AlertDialogDescription>
       </AlertDialogHeader>
-      <AlertDialogFooter class={"text-right direction-rtl w-max"}>
+      <AlertDialogFooter class={"text-right direction-rtl w-max flex flex-row justify-between"}>
         <AlertDialogAction onClick={() => navigate(`/finished/${serial()}`)}>
           حسنًا
         </AlertDialogAction>
         <div class={"mx-3"}/>
-        <AlertDialogClose onClick={props.onDismissRequest}>الرجوع</AlertDialogClose>
+        <AlertDialogClose class={"my-0"} onClick={props.onDismissRequest}>الرجوع</AlertDialogClose>
       </AlertDialogFooter>
     </>
   )
@@ -218,7 +218,7 @@ function InstructionsAlert(props: { onClick: () => void, onDismissRequest: () =>
           <Understood/>
         </AlertDialogDescription>
       </AlertDialogHeader>
-      <AlertDialogFooter class={"text-right direction-rtl w-max"}>
+      <AlertDialogFooter class={"text-right direction-rtl w-max flex flex-row justify-between"}>
         <AlertDialogAction
           disabled={!understood()}
           onClick={props.onClick}
@@ -226,7 +226,7 @@ function InstructionsAlert(props: { onClick: () => void, onDismissRequest: () =>
           أعطني الرقم التسلسلي
         </AlertDialogAction>
         <div class={"mx-3"}/>
-        <AlertDialogClose onClick={props.onDismissRequest}>الرجوع</AlertDialogClose>
+        <AlertDialogClose class={"my-0"} onClick={props.onDismissRequest}>الرجوع</AlertDialogClose>
       </AlertDialogFooter>
     </>
   )
