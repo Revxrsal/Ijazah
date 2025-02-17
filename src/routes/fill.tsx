@@ -106,6 +106,7 @@ export default function Fill() {
         <Warning/>
         <AgreeBox/>
         <WillAttendTomorrow/>
+<p><strong>شرط الإجازة: </strong>حضور جميع المجالس بشكل حي</p>
         {/*<p class={"my-4 text-green-200"}>*/}
         {/*  {watchedAll() ? "ستحصل غدًا على الإجازة والشهادة" : "ستحصل غدًا على الشهادة فقط"}*/}
         {/*</p>*/}
