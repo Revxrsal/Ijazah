@@ -74,7 +74,7 @@ export default function Fill() {
   const navigate = useNavigate();
   const [openDialog, setOpenDialog] = createSignal(false)
   const [watchedAll, WatchedAllLive] = createConfirmationBox(
-    "قد تابعت كافة مجالس الدورة بشكلٍ حيّ [وجاهيًا - عبر البثّ المُباشر]"
+    "نعم، استوفيت شرط الإجازة"
   )
   const {name, NameField} = createNameField(watchedAll)
   const [agree, AgreeBox] = createConfirmationBox(
@@ -102,11 +102,12 @@ export default function Fill() {
       <form class={"flex flex-col my-4 border rounded-xl p-8"}>
         <NameField/>
         <GenderPicker/>
-        <WatchedAllLive/>
         <Warning/>
+<p><strong>شرط الإجازة: </strong>حضور جميع المجالس بشكل حي</p>
+        <WatchedAllLive/>
         <AgreeBox/>
         <WillAttendTomorrow/>
-<p><strong>شرط الإجازة: </strong>حضور جميع المجالس بشكل حي</p>
+
         {/*<p class={"my-4 text-green-200"}>*/}
         {/*  {watchedAll() ? "ستحصل غدًا على الإجازة والشهادة" : "ستحصل غدًا على الشهادة فقط"}*/}
         {/*</p>*/}
@@ -123,6 +124,7 @@ export default function Fill() {
             name() == "" ||
             !agree() ||
             !willAttendTomorrow() ||
+            !watchedAllLive() ||
             gender() == null
           }
         >
