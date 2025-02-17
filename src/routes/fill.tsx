@@ -71,7 +71,7 @@ async function generateSerial(data: Submission): Promise<number> {
 
 export default function Fill() {
   const navigate = useNavigate();
-  const [openDialog, setOpenDialog] = createSignal(true)
+  const [openDialog, setOpenDialog] = createSignal(false)
   const [watchedAll, WatchedAllLive] = createConfirmationBox(
     "قد تابعت كافة مجالس الدورة بشكلٍ حيّ [وجاهيًا - عبر البثّ المُباشر]"
   )
@@ -165,7 +165,6 @@ function Alert(props: { onDismissRequest: () => void, data: Submission }) {
 
 function ShowingSerialAlert(props: { onDismissRequest: () => void, data: Submission }) {
   const navigate = useNavigate()
-  console.log(props.data)
   const [serial] = createResource(async () => generateSerial(props.data))
   createEffect(() => {
     console.log(serial.state)
