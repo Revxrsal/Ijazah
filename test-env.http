@@ -1,0 +1,10 @@
+POST http://localhost:3000/api/generate-serial
+Content-Type: application/json
+
+{
+  "name": "علي",
+  "gender": "ذكر",
+  "watchedAll": true
+}
+
+###
