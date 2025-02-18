@@ -17,12 +17,10 @@ export default function Home() {
       <h2 class={"my-4"}>
         التّعليق على سنن النّسائيّ
       </h2>
-      <h3 class={"my-4"}>
+      <h4 class={"my-4"}>
         الدّورة العلميّة المكثفّة - همم ٣
       </h3>
-      <Button class={"mt-8 mb-2 text-xl p-7"} onClick={() => navigate("/fill")}>
-        تعبئة نموذج الإجازة
-      </Button>
+<p class="text-red-200 text-3xl font-bold direction-rtl ">انتهى موعد التسجيل - نعتذكر منكم!</p>
       <Button variant={"ghost"} class={"mt-2 mb-2 p-6"} onClick={() => navigate("/forgot-serial")}>
         نسيت الرقم التسلسلي؟
       </Button>
