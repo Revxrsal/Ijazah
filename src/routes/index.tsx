@@ -20,7 +20,7 @@ export default function Home() {
       <h4 class={"my-4"}>
         الدّورة العلميّة المكثفّة - همم ٣
       </h4>
-      <p class={"my-4 text-red-200 text-3xl font-bold direction-rtl"}>
+      <p class={"my-4 text-red-200 text-3xl font-bold direction-rtl leading-relaxed"}>
     انتهى موعد التسجيل - نعتذكر منكم!
       </p>
       <Button variant={"ghost"} class={"mt-2 mb-2 p-6"} onClick={() => navigate("/forgot-serial")}>
