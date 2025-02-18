@@ -19,8 +19,8 @@ export default function Home() {
       </h2>
       <h4 class={"my-4"}>
         الدّورة العلميّة المكثفّة - همم ٣
-      </h3>
-      <p class={"text-red-200 text-3xl font-bold direction-rtl"}>
+      </h4>
+      <p class={"my-4 text-red-200 text-3xl font-bold direction-rtl"}>
     انتهى موعد التسجيل - نعتذكر منكم!
       </p>
       <Button variant={"ghost"} class={"mt-2 mb-2 p-6"} onClick={() => navigate("/forgot-serial")}>
